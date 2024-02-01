@@ -74,9 +74,9 @@ if(typeof Promise.withResolvers != 'function') {
 }
 
 function EventEmitter() {
-  if(!(this instanceof Thread)) {
-    var instance = Object.create(Thread.prototype)
-    Thread.apply(instance, arguments)
+  if(!(this instanceof EventEmitter)) {
+    var instance = Object.create(EventEmitter.prototype)
+    EventEmitter.apply(instance, arguments)
     return instance
   }
   var events = {}
@@ -222,7 +222,6 @@ if(typeof module != 'undefined' && typeof exports == 'object') {
   }
 }
 
-console.log({ test: typeof require == 'function' && require.arjs, require, global })
 if(typeof require == 'function' && require.arjs) {
   global.Thread = global.Thread || Thread
   global.EventEmitter = global.EventEmitter || EventEmitter
